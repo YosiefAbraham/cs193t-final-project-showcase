@@ -1,0 +1,65 @@
+{{- /*
+  showcase-featured: a few final projects from the showcase, rendered at build time in the course site's own style.
+  Installed by cs193t-showcase (tools/integrate_hugo.py). Reads data/showcase/projects.json, which the installer copies
+  from the showcase. No JavaScript, nothing loaded from other sites; Hugo escapes every value.
+
+  Usage in any page:   {{< showcase-featured >}}
+  Options:             count="3"   how many projects (featured first, then the rest A to Z)
+                       title="..." heading text; heading="false" hides the heading
+                       path="final_project/showcase/"   where the showcase lives, relative to baseURL
+                       show-demo="true"   also render sample data (never on the live site)
+*/ -}}
+{{- $count := int (.Get "count" | default 3) -}}
+{{- $title := .Get "title" | default "Final project showcase" -}}
+{{- if eq (.Get "heading") "false" }}{{ $title = "" }}{{ end -}}
+{{- $base := (.Get "path" | default "final_project/showcase/") | relURL -}}
+{{- $hues := dict "fitness" 14 "health" 172 "wellbeing" 262 "food" 36 "games" 292 "productivity" 214 "career" 228 "learning" 152 "research" 198 "finance" 128 "creative" 330 "community" 4 "civic" 24 "environment" 140 "travel" 186 "software" 244 -}}
+{{- $data := site.Data.showcase.projects -}}
+{{- if not $data -}}
+  {{- warnf "showcase-featured: data/showcase/projects.json is missing. Run tools/integrate_hugo.py." -}}
+{{- else if and $data.demo (ne (.Get "show-demo") "true") -}}
+  {{- warnf "showcase-featured: the showcase holds sample data, so nothing is shown on %s." .Page.RelPermalink -}}
+{{- else -}}
+  {{- $all := $data.projects | default slice -}}
+  {{- $featured := where $all "featured" true -}}
+  {{- $rest := where $all "featured" "!=" true -}}
+  {{- $pick := first $count ($featured | append $rest) -}}
+  {{- if $pick -}}
+    {{- if not (.Page.Store.Get "showcaseTeaserCss") -}}
+      {{- .Page.Store.Set "showcaseTeaserCss" true -}}
+<link rel="stylesheet" href="{{ print $base "assets/teaser.css" }}">
+    {{- end }}
+<section class="sc-teaser"{{ with $title }} aria-labelledby="sc-teaser-title-{{ $.Ordinal }}"{{ end }}>
+  <div class="sc-teaser__head">
+    {{- with $title }}
+    <h2 class="sc-teaser__title" id="sc-teaser-title-{{ $.Ordinal }}">{{ . }}</h2>
+    {{- end }}
+    <a class="sc-teaser__all" href="{{ $base }}">See all {{ len $all }} projects <span aria-hidden="true">&rarr;</span></a>
+  </div>
+  <ul class="sc-teaser__grid">
+    {{- range $pick }}
+    {{- $words := split (trim .title " ") " " }}
+    {{- $mono := upper (substr (index $words 0) 0 1) }}
+    {{- if gt (len $words) 1 }}{{ $mono = print $mono (upper (substr (index $words 1) 0 1)) }}{{ end }}
+    {{- $tag := "" }}{{ with .tags }}{{ $tag = index . 0 }}{{ end }}
+    <li class="sc-teaser__item">
+      <a class="sc-teaser__card" href="{{ $base }}#p={{ .id }}">
+        {{- $thumb := "" }}
+        {{- with .thumbnail }}{{ if and (hasPrefix . "thumbs/") (strings.HasSuffix . ".webp") }}{{ $thumb = . }}{{ end }}{{ end }}
+        {{- if $thumb }}
+        <img class="sc-teaser__img" src="{{ print $base $thumb }}" alt="" width="960" height="640" loading="lazy" decoding="async">
+        {{- else }}
+        <span class="sc-teaser__cover sc-teaser__cover--h{{ index $hues $tag | default 214 }}" aria-hidden="true"><span class="sc-teaser__mono">{{ $mono }}</span></span>
+        {{- end }}
+        <span class="sc-teaser__body">
+          <span class="sc-teaser__name">{{ .title }}</span>
+          <span class="sc-teaser__who">{{ delimit .students ", " }}</span>
+          <span class="sc-teaser__sum">{{ .summary }}</span>
+        </span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+  {{- end -}}
+{{- end -}}

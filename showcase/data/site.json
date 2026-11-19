@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "term": "Autumn 2026",
+  "eyebrow": "Final project showcase",
+  "headline": "What students built *with* AI.",
+  "lede": "Custom AI systems from students across every major. Search for what you care about and the page rearranges around it.",
+  "searchPlaceholder": "Try “cooking” or “gym”",
+  "trySearches": [
+    "work out",
+    "cooking",
+    "games",
+    "organization",
+    "study",
+    "health",
+    "money",
+    "climate"
+  ],
+  "footerNote": "Projects appear with each student’s permission. Spot a problem or want yours changed?"
+}

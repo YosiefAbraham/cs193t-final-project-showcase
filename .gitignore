@@ -1,0 +1,5 @@
+# Private student data: never commit or upload
+tools/work/
+__pycache__/
+*.pyc
+.DS_Store

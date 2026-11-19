@@ -1,0 +1,56 @@
+/* Featured-projects teaser for pages of the CS193T course site (Hugo shortcode "showcase-featured").
+   It sits inside the course's Beautiful Hugo / Bootstrap 3 pages, so it inherits their fonts (Lora body,
+   Open Sans headings) and follows the same light and dark colors. Every rule is scoped to .sc-teaser. */
+
+.sc-teaser {
+  --sc-bg: #f8f9fb; --sc-card: #ffffff; --sc-line: #e6e8eb; --sc-ink: #404040; --sc-ink-2: #555555;
+  --sc-strong: #2b2b2b; --sc-link: #0066cc; --sc-cover-l: 93%; --sc-cover-l2: 84%; --sc-cover-ink: 30%;
+  margin: 24px 0; padding: 20px; border: 1px solid var(--sc-line); border-radius: 12px; background: var(--sc-bg);
+  color: var(--sc-ink);
+}
+@media (prefers-color-scheme: dark) {
+  .sc-teaser {
+    --sc-bg: #121417; --sc-card: #0b0d0f; --sc-line: #2a2f36; --sc-ink: #e6e6e6; --sc-ink-2: #c4c7cc;
+    --sc-strong: #f0f0f0; --sc-link: #8ab4ff; --sc-cover-l: 17%; --sc-cover-l2: 24%; --sc-cover-ink: 78%;
+  }
+}
+.sc-teaser *, .sc-teaser *::before, .sc-teaser *::after { box-sizing: border-box; }
+.sc-teaser__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 14px; }
+.sc-teaser__title { margin: 0; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; color: var(--sc-strong); }
+.sc-teaser__all { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; color: var(--sc-link); }
+.sc-teaser__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.sc-teaser__item { margin: 0; padding: 0; }
+.sc-teaser__card {
+  display: flex; flex-direction: column; height: 100%; overflow: hidden; border: 1px solid var(--sc-line); border-radius: 10px;
+  background: var(--sc-card); color: inherit; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s;
+}
+.sc-teaser__card:hover, .sc-teaser__card:focus { text-decoration: none; color: inherit; border-color: var(--sc-link); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+.sc-teaser__card:focus-visible { outline: 2px solid var(--sc-link); outline-offset: 2px; }
+.sc-teaser__img, .sc-teaser__cover { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top center; }
+.sc-teaser__cover {
+  --sc-hue: 214; position: relative; overflow: hidden; container-type: size;
+  background: radial-gradient(120% 90% at 100% 0%, hsl(var(--sc-hue) 55% var(--sc-cover-l2)) 0%, transparent 60%), hsl(var(--sc-hue) 35% var(--sc-cover-l));
+  color: hsl(var(--sc-hue) 45% var(--sc-cover-ink));
+}
+/* Same fitting rule as the showcase covers: the widest two-letter pair always stays inside. */
+.sc-teaser__mono { position: absolute; left: 7cqi; bottom: 8cqh; font: italic 400 64px/1.25 Lora, 'Times New Roman', serif; font-size: min(48cqh, 32cqi); letter-spacing: -0.03em; padding-right: 0.12em; white-space: nowrap; }
+.sc-teaser__body { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px; }
+.sc-teaser__name { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 16px; line-height: 1.25; color: var(--sc-strong); }
+.sc-teaser__who { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; color: var(--sc-ink-2); }
+.sc-teaser__sum { font-size: 15px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sc-teaser__cover--h4 { --sc-hue: 4; }
+.sc-teaser__cover--h14 { --sc-hue: 14; }
+.sc-teaser__cover--h24 { --sc-hue: 24; }
+.sc-teaser__cover--h36 { --sc-hue: 36; }
+.sc-teaser__cover--h128 { --sc-hue: 128; }
+.sc-teaser__cover--h140 { --sc-hue: 140; }
+.sc-teaser__cover--h152 { --sc-hue: 152; }
+.sc-teaser__cover--h172 { --sc-hue: 172; }
+.sc-teaser__cover--h186 { --sc-hue: 186; }
+.sc-teaser__cover--h198 { --sc-hue: 198; }
+.sc-teaser__cover--h214 { --sc-hue: 214; }
+.sc-teaser__cover--h228 { --sc-hue: 228; }
+.sc-teaser__cover--h244 { --sc-hue: 244; }
+.sc-teaser__cover--h262 { --sc-hue: 262; }
+.sc-teaser__cover--h292 { --sc-hue: 292; }
+.sc-teaser__cover--h330 { --sc-hue: 330; }

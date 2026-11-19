@@ -1,0 +1,47 @@
+# Security headers and caching for the showcase on Apache (web.stanford.edu).
+# Uses only directives that are legal in .htaccess. If the host disallows Header overrides and the page
+# returns 500 after upload, delete this file: index.html carries the same CSP in a <meta> tag.
+
+<IfModule mod_headers.c>
+  # Everything is self-hosted: scripts, styles, fonts, images. Trusted Types forbid HTML-string injection.
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests"
+  # Never MIME-sniff; send only the origin cross-site; deny unused powerful features.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  # No framing by other sites; isolate from cross-origin openers.
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # Data, thumbnails and posters revalidate on every load (cheap 304s) so a takedown is visible at once.
+  <FilesMatch "\.(json|webp|pdf)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Code and styles cache for one hour.
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+  # Fonts never change; cache for a year.
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # An SVG opened directly can never run script.
+  <FilesMatch "\.svg$">
+    Header always set Content-Security-Policy "default-src 'none'; style-src 'unsafe-inline'"
+  </FilesMatch>
+</IfModule>
+
+# Hide dotfiles and dot-directories (this file included); .well-known stays reachable.
+<IfModule mod_alias.c>
+  RedirectMatch 404 "/\.(?!well-known(/|$))"
+</IfModule>
+
+# Directory listings: data/, thumbs/ and files/ each ship an empty index.html, so nothing is listed
+# even where "Options" overrides are not allowed (an unpermitted "Options -Indexes" would cause a 500).
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType application/json .json
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+</IfModule>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Showcase admin · CS193T</title>
+  <link rel="icon" href="/site/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/admin.css">
+  <script type="module" src="/admin.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/" aria-label="Showcase admin home">
+        <img src="/site/assets/favicon.svg" alt="" width="30" height="30">
+        <span>CS193T Showcase <span class="brand__sub">Admin</span></span>
+      </a>
+      <div class="tabs" id="tabs" aria-label="Admin sections" role="tablist">
+        <button class="tab" role="tab" type="button" id="tab-projects" aria-controls="panel-projects" aria-selected="true">Projects</button>
+        <button class="tab" role="tab" type="button" id="tab-copy" aria-controls="panel-copy" aria-selected="false" tabindex="-1">Page copy</button>
+        <button class="tab" role="tab" type="button" id="tab-topics" aria-controls="panel-topics" aria-selected="false" tabindex="-1">Topics</button>
+        <button class="tab" role="tab" type="button" id="tab-publish" aria-controls="panel-publish" aria-selected="false" tabindex="-1">Publish</button>
+      </div>
+      <div class="topbar__end">
+        <span class="badge badge--local">Local only<span class="visually-hidden">: this editor runs only on this computer</span></span>
+        <a class="btn btn--ghost btn--sm" href="/site/" target="_blank" rel="noopener">Preview site</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="locked" id="locked" hidden>
+      <div class="panel locked__card">
+        <h1>Open the admin link from the terminal</h1>
+        <p>For safety, this editor only works from the private link that <code>python3 tools/admin.py</code> prints when it starts. It looks like <code>http://127.0.0.1:4322/#t=…</code>.</p>
+        <p class="muted">The link changes every time the server starts, so an old tab stops working. Unsaved edits in that tab could not be saved. Open the new link and redo them.</p>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <section class="view" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
+      <div class="split">
+        <aside class="panel list" aria-label="Projects">
+          <div class="list__head">
+            <h2 class="label">Projects <span class="count" id="row-count"></span></h2>
+            <button class="btn btn--primary btn--sm" type="button" id="add-row">Add project</button>
+          </div>
+          <label class="visually-hidden" for="row-filter">Filter projects</label>
+          <input class="input input--search" id="row-filter" type="search" placeholder="Filter by title or name" autocomplete="off" spellcheck="false">
+          <div class="seg" id="row-seg" role="radiogroup" aria-label="Show">
+            <button type="button" role="radio" aria-checked="true" data-v="all">All</button>
+            <button type="button" role="radio" aria-checked="false" data-v="yes">Will publish</button>
+            <button type="button" role="radio" aria-checked="false" data-v="no">Not published</button>
+            <button type="button" role="radio" aria-checked="false" data-v="fix">Needs fixes</button>
+          </div>
+          <p class="visually-hidden" id="rows-status" role="status"></p>
+          <ul class="rows" id="rows" aria-label="Project list"></ul>
+          <div class="list__empty" id="rows-empty" hidden></div>
+        </aside>
+
+        <div class="editor" id="editor"></div>
+      </div>
+    </section>
+
+    <!-- Page copy -->
+    <section class="view" id="panel-copy" role="tabpanel" aria-labelledby="tab-copy" tabindex="0" hidden>
+      <div class="split split--even">
+        <form class="panel form" id="copy-form" novalidate>
+          <h2 class="h2">Page copy</h2>
+          <p class="muted">The words at the top and bottom of the showcase. Plain text only.</p>
+          <div id="copy-fields"></div>
+          <div class="form__errors" id="copy-errors" role="alert" hidden></div>
+          <div class="savebar">
+            <span class="savebar__state" id="copy-state" aria-live="polite"></span>
+            <button class="btn btn--ghost" type="button" id="copy-reset">Discard</button>
+            <button class="btn btn--primary" type="submit">Save copy</button>
+          </div>
+        </form>
+        <div class="panel preview" aria-label="Preview">
+          <p class="label">Preview</p>
+          <div class="preview__hero">
+            <p class="preview__eyebrow" id="pv-eyebrow"></p>
+            <p class="preview__title" id="pv-title"></p>
+            <p class="preview__lede" id="pv-lede"></p>
+            <div class="preview__search" id="pv-search"></div>
+            <div class="preview__try" id="pv-try"></div>
+          </div>
+          <p class="preview__footer" id="pv-footer"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics -->
+    <section class="view" id="panel-topics" role="tabpanel" aria-labelledby="tab-topics" tabindex="0" hidden>
+      <form class="topics-form" id="topics-form" novalidate>
+        <div class="panel announce">
+          <h2 class="h2">Topics and keywords</h2>
+          <p>Each topic is a chip on the showcase and a search shortcut. Add the words people actually type, like <em>gym</em>, <em>meal prep</em> or <em>budget</em>. Phrases win over single words, so “work out” finds Fitness before “work” finds Work &amp; career.</p>
+        </div>
+        <div class="topics" id="topics"></div>
+        <button class="btn btn--ghost" type="button" id="add-topic">Add topic</button>
+        <div class="panel">
+          <label class="label" for="tools-list">AI tools students can tag</label>
+          <p class="muted">One per line. Tool names are never treated as topics, so “Claude Code” doesn’t mean Software.</p>
+          <textarea class="input" id="tools-list" rows="8" spellcheck="false"></textarea>
+        </div>
+        <div class="form__errors" id="topics-errors" role="alert" hidden></div>
+        <div class="savebar savebar--sticky">
+          <span class="savebar__state" id="topics-state" aria-live="polite"></span>
+          <button class="btn btn--ghost" type="button" id="topics-reset">Discard</button>
+          <button class="btn btn--primary" type="submit">Save topics</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Publish -->
+    <section class="view" id="panel-publish" role="tabpanel" aria-labelledby="tab-publish" tabindex="0" hidden>
+      <div class="steps">
+        <div class="panel step">
+          <p class="step__n">1</p>
+          <div class="step__body">
+            <h2 class="h2">Import from Gradescope</h2>
+            <p>On the final-project assignment, open <strong>Review Grades</strong> and download the submissions zip. Choose it here. Your edits are kept; only new submissions and empty cells are filled in. The zip is deleted after import.</p>
+            <div class="row-actions">
+              <label class="btn btn--ghost file">
+                <input type="file" id="import-file" accept=".zip,application/zip">
+                <span id="import-name">Choose export zip…</span>
+              </label>
+              <button class="btn btn--primary" type="button" id="import-go" disabled>Import</button>
+            </div>
+            <pre class="log" id="import-log" hidden></pre>
+          </div>
+        </div>
+        <div class="panel step">
+          <p class="step__n">2</p>
+          <div class="step__body">
+            <h2 class="h2">Review consent and fixes</h2>
+            <p>Only projects marked <strong>Publish</strong> go live. Turn it on only when every student on the project agreed.</p>
+            <dl class="tally" id="tally"></dl>
+          </div>
+        </div>
+        <div class="panel step">
+          <p class="step__n">3</p>
+          <div class="step__body">
+            <h2 class="h2">Build the showcase</h2>
+            <p>Checks every published project, makes thumbnails and poster images, and replaces <code>showcase/data/projects.json</code>.</p>
+            <div class="checks">
+              <label class="check"><input type="checkbox" id="opt-skip"> <span>Skip projects that need fixes (publish the rest)</span></label>
+              <label class="check"><input type="checkbox" id="opt-pdfs"> <span>Also publish sanitized poster PDFs (needs <code>qpdf</code>)</span></label>
+            </div>
+            <div class="row-actions">
+              <button class="btn btn--primary" type="button" id="build-go">Build showcase</button>
+              <a class="btn btn--ghost" href="/site/" target="_blank" rel="noopener" id="build-preview" hidden>Preview the result</a>
+            </div>
+            <pre class="log" id="build-log" hidden></pre>
+          </div>
+        </div>
+        <div class="panel step">
+          <p class="step__n">4</p>
+          <div class="step__body">
+            <h2 class="h2">Put it on the course site</h2>
+            <p>From the <code>cs193t-showcase</code> folder, install it into the course’s Hugo site. This copies <code>showcase/</code> to <code>static/final_project/showcase/</code>, removing files of students who withdrew. It also adds “Project Showcase” to the Final Project menu and checks the result with a real Hugo build. Then deploy the Hugo site as usual. Sample data is refused. Never copy <code>tools/</code>: it holds student data.</p>
+            <pre class="log log--cmd" id="deploy-cmd">python3 tools/integrate_hugo.py --hugo &lt;hugo-site&gt; --build</pre>
+            <div class="row-actions row-actions--top">
+              <button class="btn btn--ghost btn--sm" type="button" id="deploy-copy">Copy command</button>
+              <span class="field__hint">Replace &lt;hugo-site&gt; with the course’s Hugo folder. Add <code>--dry-run</code> first to preview the changes.</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel step">
+          <p class="step__n" aria-hidden="true">↺</p>
+          <div class="step__body">
+            <h2 class="h2">Backups</h2>
+            <p>Every save keeps a copy of the review sheet; the 30 newest are kept and the 10 most recent are listed here. Restoring one backs up the current sheet first.</p>
+            <ul class="backups" id="backups"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="modal" aria-labelledby="modal-title" aria-describedby="modal-body">
+    <form method="dialog" class="modal__inner">
+      <h2 class="h2" id="modal-title"></h2>
+      <p id="modal-body"></p>
+      <div class="modal__actions" id="modal-actions"></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

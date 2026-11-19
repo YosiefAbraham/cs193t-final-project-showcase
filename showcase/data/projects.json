@@ -1,0 +1,1168 @@
+{
+  "version": 1,
+  "course": "CS193T Thinking with AI",
+  "term": "Autumn 2026",
+  "generated": "2026-11-18T12:00:00Z",
+  "demo": true,
+  "projects": [
+    {
+      "id": "meridian",
+      "title": "Meridian",
+      "students": [
+        "Yosief Abraham"
+      ],
+      "summary": "Markets, measured. Every trade, accounted for. A mock-trading terminal on real market data: live quotes, full price history, and exact profit and loss for long, short, call and put positions.",
+      "description": "Live quotes and full price history. Exact profit and loss for long, short, call and put positions. Portfolios you can line up against each other and the S&P 500.\n\nBuilt for practicing trades with real market data and no real money.",
+      "thumbnail": "thumbs/meridian.webp",
+      "thumbnailAlt": "Screenshot of Meridian's markets terminal",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://meridiancharts.vercel.app",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "finance",
+        "software"
+      ],
+      "tools": [
+        "Claude Code"
+      ],
+      "keywords": [
+        "stocks",
+        "trading",
+        "mock trading",
+        "options",
+        "portfolio",
+        "S&P 500",
+        "investing",
+        "markets"
+      ],
+      "featured": true
+    },
+    {
+      "id": "cardinal-care-atlas",
+      "title": "Cardinal Care Atlas",
+      "students": [
+        "Yosief Abraham"
+      ],
+      "summary": "An unofficial, student-built field guide to Stanford's Cardinal Care health plan and Vaden: what is free, what it costs, and where to go.",
+      "description": "Explains Cardinal Care coverage in plain language: $0 Vaden and CAPS services, what the Campus Health Service Fee pays for, prices and coverage, a map, and what to do when Vaden is closed.\n\nUnofficial: not affiliated with Stanford, Vaden, Wellfleet or any insurer, and not medical, legal or financial advice.",
+      "thumbnail": "thumbs/cardinal-care-atlas.webp",
+      "thumbnailAlt": "Screenshot of Cardinal Care Atlas's Vaden page",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://mycardinalcare.vercel.app/",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "health",
+        "finance"
+      ],
+      "tools": [
+        "Claude Code"
+      ],
+      "keywords": [
+        "Cardinal Care",
+        "Vaden",
+        "CAPS",
+        "insurance",
+        "health fee",
+        "health insurance",
+        "doctor",
+        "coverage"
+      ],
+      "featured": true
+    },
+    {
+      "id": "pantry-pilot",
+      "title": "Pantry Pilot",
+      "students": [
+        "Sample Student A"
+      ],
+      "summary": "Turns a photo of your fridge into three dinners you can cook tonight, plus a grocery list for the rest of the week. Built for students cooking on a small budget.",
+      "description": "A student uploads a photo of their fridge and pantry. Claude reads the visible ingredients, asks a few questions about dietary limits and cooking time, and returns three dinner plans with step lists. A Claude Code script keeps the ingredient inventory in a local file so next week's plan starts from what is already on hand.\n\nVision output is often wrong about jars and half-used packages, so the app shows the detected list for confirmation before it plans anything. It does not check food safety or expiry dates, and users should verify those themselves.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/pantry-pilot",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/pantry-pilot",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "food",
+        "productivity"
+      ],
+      "tools": [
+        "Claude",
+        "Claude Code"
+      ],
+      "keywords": [
+        "meal prep",
+        "grocery list",
+        "fridge photo",
+        "budget dinners"
+      ],
+      "thumbnail": null,
+      "featured": true
+    },
+    {
+      "id": "rep-counter-coach",
+      "title": "Rep Counter Coach",
+      "students": [
+        "Sample Student B"
+      ],
+      "summary": "Counts reps and flags form breaks from a short phone video of a lift, then suggests the next session's weight. Aimed at beginners who train without a coach.",
+      "description": "Users record one set from the side and upload the clip. Gemini samples frames and estimates joint angles and rep count, and a small Claude Code-built web app turns those numbers into a session summary with simple form cues. Progression suggestions follow a fixed rule the student can read and change.\n\nPose estimation from a single camera angle misses depth and gets confused by loose clothing, so counts are approximate and the app asks the user to confirm them. It is not a substitute for a coach or medical advice, and it tells users to stop if they feel pain.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/rep-counter-coach",
+          "label": "Live site"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.youtube.com/watch?v=example",
+          "label": "Demo video"
+        }
+      ],
+      "tags": [
+        "fitness",
+        "software"
+      ],
+      "tools": [
+        "Gemini",
+        "Claude Code"
+      ],
+      "keywords": [
+        "workout log",
+        "form check",
+        "lifting",
+        "progressive overload"
+      ],
+      "thumbnail": null,
+      "featured": true
+    },
+    {
+      "id": "trail-pace-planner",
+      "title": "Trail Pace Planner",
+      "students": [
+        "Sample Student C"
+      ],
+      "summary": "Builds a weekly running plan around your race date and the elevation of local trails. Written for recreational runners training for a first trail half marathon.",
+      "description": "The runner enters a race date, current weekly mileage, and a trail map or GPX file. Deep Research gathers published training guidance and trail elevation profiles, then a ChatGPT workflow drafts a week-by-week plan with easy, tempo, and long runs. Each week is exported as a calendar file.\n\nThe plan leans on general training guidance and may not fit people with injuries or heart conditions. Elevation numbers from public sources can be off by a meaningful margin, so the planner shows its sources and asks the runner to check the route before relying on it.",
+      "links": [
+        {
+          "kind": "doc",
+          "url": "https://example.com/trail-pace-planner/write-up",
+          "label": "Write-up"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/trail-pace-planner",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "fitness",
+        "travel"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Deep Research"
+      ],
+      "keywords": [
+        "half marathon",
+        "elevation",
+        "training plan",
+        "running"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "stretch-break-buddy",
+      "title": "Stretch Break Buddy",
+      "students": [
+        "Sample Student A",
+        "Sample Student D"
+      ],
+      "summary": "Reminds desk workers to stand and stretch, then suggests a two-minute routine based on how long they have been sitting. Helps people who lose track of time during long work sessions.",
+      "description": "A browser extension built with Claude in Chrome watches a calendar block for focused work and nudges the user after a set interval. Claude picks a short routine from a list of twelve movements, matched to whether the user is seated, standing, or on a call.\n\nThe nudges can become noise, so the default is one reminder per hour and every reminder can be snoozed. The routines are general movement suggestions, not physical therapy, and users with pain should check with a clinician.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/stretch-break-buddy",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/stretch-break-buddy",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "fitness",
+        "wellbeing"
+      ],
+      "tools": [
+        "Claude in Chrome",
+        "Claude"
+      ],
+      "keywords": [
+        "desk break",
+        "sedentary",
+        "movement reminder",
+        "office health"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "symptom-diary-assistant",
+      "title": "Symptom Diary Assistant",
+      "students": [
+        "Sample Student E"
+      ],
+      "summary": "Helps people with migraines log symptoms, sleep, and triggers, then summarizes patterns to bring to a clinic visit. Entries stay on the user's own device.",
+      "description": "Users log a short daily entry for headaches, sleep hours, caffeine, and stress. A Claude-written summary groups the entries by week and lists the patterns that appear more than once. NotebookLM holds the user's notes from clinic visits so the summary can point back to them.\n\nA pattern in a small personal log is not a cause, and the tool does not diagnose anything. It is built for conversation with a clinician, and the summary says so at the top. Only the text the user chooses to summarize is sent to a model provider.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/symptom-diary-assistant",
+          "label": "Live site"
+        },
+        {
+          "kind": "doc",
+          "url": "https://example.com/symptom-diary-assistant/write-up",
+          "label": "Write-up"
+        }
+      ],
+      "tags": [
+        "health",
+        "wellbeing"
+      ],
+      "tools": [
+        "Claude",
+        "NotebookLM"
+      ],
+      "keywords": [
+        "migraine",
+        "sleep log",
+        "triggers",
+        "clinic visit"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "refill-reminder",
+      "title": "Refill Reminder",
+      "students": [
+        "Sample Student F"
+      ],
+      "summary": "Tracks prescription refill dates for a household and drafts reminder messages to the pharmacy. Built for caregivers managing several medications at once.",
+      "description": "The caregiver enters each medication, dose, and refill date once. The app schedules reminders a week before each refill and drafts a message to the pharmacy with the prescription details. Codex wrote most of the scheduling logic, and Claude Code generated test cases for date rollovers and early refills.\n\nThe app holds health information, so it runs locally and does not send messages on its own. Dose or schedule changes must come from the prescriber, and the tool does not check drug interactions.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/refill-reminder",
+          "label": "Source code"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/refill-reminder",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "health",
+        "productivity"
+      ],
+      "tools": [
+        "Codex",
+        "Claude Code"
+      ],
+      "keywords": [
+        "medication schedule",
+        "caregiver",
+        "pharmacy",
+        "refill"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "leftover-lab",
+      "title": "Leftover Lab",
+      "students": [
+        "Sample Student G"
+      ],
+      "summary": "Suggests recipes that use up food about to expire in a household fridge, and tracks how much food stays out of the bin each week. For students who want less waste.",
+      "description": "Users tag groceries with purchase dates. Each evening the app lists items nearing their likely end date and asks Gemini to propose two recipes that use them. A weekly chart compares food saved from the bin with the previous week.\n\nThe shelf-life estimates are rough defaults and are not food safety guidance, so users should rely on their own checks. Waste numbers depend on users logging honestly, which is hard to keep up for more than a few weeks.",
+      "links": [
+        {
+          "kind": "dashboard",
+          "url": "https://example.org/leftover-lab/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/leftover-lab",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "food",
+        "environment"
+      ],
+      "tools": [
+        "Gemini",
+        "Claude"
+      ],
+      "keywords": [
+        "food waste",
+        "expiry",
+        "recipe ideas",
+        "sustainability"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "ramen-ledger",
+      "title": "Ramen Ledger",
+      "students": [
+        "Sample Student H"
+      ],
+      "summary": "Sorts a month of bank exports into budget categories and flags spending that is running ahead of plan. Made for students living on a fixed stipend.",
+      "description": "A student exports transactions as a CSV and drops the file into a Claude Cowork folder. A recurring Cowork automation categorizes each line, compares totals against a monthly budget, and writes a short summary with two suggested cuts. Categories the model is unsure about are listed for manual review.\n\nBank exports contain sensitive account details, so the workflow runs on the student's own machine and the export is deleted after processing. Categorization is wrong often enough that totals should be treated as estimates, and the tool gives no investment or tax advice.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/ramen-ledger",
+          "label": "Source code"
+        },
+        {
+          "kind": "dashboard",
+          "url": "https://example.org/ramen-ledger/dashboard",
+          "label": "Dashboard"
+        }
+      ],
+      "tags": [
+        "finance",
+        "productivity"
+      ],
+      "tools": [
+        "Claude Cowork",
+        "Claude"
+      ],
+      "keywords": [
+        "budget",
+        "expenses",
+        "stipend",
+        "bank export"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "syllabus-autopilot",
+      "title": "Syllabus Autopilot",
+      "students": [
+        "Sample Student A",
+        "Sample Student B"
+      ],
+      "summary": "Pulls due dates from course syllabi and adds them to a calendar with a prep checklist for each one. Built for students juggling four or five classes.",
+      "description": "The student uploads syllabus PDFs. ChatGPT Work extracts assignments, exams, and reading deadlines into a table, and a Cowork automation writes calendar events with a short prep checklist for each. When a professor posts an update, the workflow re-reads the file and marks any dates that changed.\n\nSyllabi are inconsistent, and extraction misses dates written in prose or inside images. Every event is shown for approval before it is added, and the tool never shares a student's calendar with anyone else.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/syllabus-autopilot",
+          "label": "Live site"
+        },
+        {
+          "kind": "pdf",
+          "url": "https://example.com/syllabus-autopilot/poster.pdf",
+          "label": "Poster (PDF)"
+        }
+      ],
+      "tags": [
+        "productivity",
+        "learning"
+      ],
+      "tools": [
+        "ChatGPT Work",
+        "Claude Cowork"
+      ],
+      "keywords": [
+        "syllabus",
+        "due dates",
+        "calendar sync",
+        "course planning"
+      ],
+      "thumbnail": null,
+      "featured": true
+    },
+    {
+      "id": "flashcard-forge",
+      "title": "Flashcard Forge",
+      "students": [
+        "Sample Student C"
+      ],
+      "summary": "Generates flashcards from lecture slides and spaces out reviews on a schedule. Intended for students studying for exams in large survey courses.",
+      "description": "The app reads slide decks and lecture notes through the Claude API and writes question-and-answer cards, grouped by lecture. A spaced repetition schedule decides which cards to show each day, and cards the student keeps missing are rewritten into a simpler form.\n\nGenerated cards sometimes state facts that are wrong or too narrow, so students review each card before studying with it. The tool works best on slides that contain real explanations rather than bare bullet lists.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/flashcard-forge",
+          "label": "Source code"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/flashcard-forge",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "learning",
+        "software"
+      ],
+      "tools": [
+        "Claude API",
+        "Claude Code"
+      ],
+      "keywords": [
+        "spaced repetition",
+        "lecture slides",
+        "exam prep",
+        "flashcards"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "lab-notebook-summarizer",
+      "title": "Lab Notebook Summarizer",
+      "students": [
+        "Sample Student D"
+      ],
+      "summary": "Reads a stack of research papers and writes a one-page comparison table of methods, datasets, and open questions. Built for undergraduates starting a literature review.",
+      "description": "A student loads ten to twenty papers into NotebookLM and asks a fixed set of questions about each: the research question, methods, sample, and stated limitations. Claude turns those answers into a comparison table and a list of gaps that the student checks against the original text.\n\nSummaries can flatten the caveats in a paper, and the table is no replacement for reading the methods section. Every row links back to the page it came from, and students are expected to check at least two rows against the source.",
+      "links": [
+        {
+          "kind": "doc",
+          "url": "https://example.com/lab-notebook-summarizer/write-up",
+          "label": "Write-up"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/lab-notebook-summarizer",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "research",
+        "learning"
+      ],
+      "tools": [
+        "NotebookLM",
+        "Claude"
+      ],
+      "keywords": [
+        "literature review",
+        "papers",
+        "comparison table",
+        "citations"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "cite-or-cut",
+      "title": "Cite or Cut",
+      "students": [
+        "Sample Student E"
+      ],
+      "summary": "Checks each citation in a student's draft to see whether the source exists and supports the sentence it is attached to. Useful before submitting a thesis chapter.",
+      "description": "Deep Research looks up each cited DOI or title and returns the abstract and main claims. A ChatGPT step compares those claims to the sentence in the draft and labels each citation as supported, unclear, or not found.\n\nThe model can judge a claim as supported from an abstract when the full paper says otherwise, so every label links to its source for a manual check. The tool does not write or fix citations, and it cannot read paywalled full texts.",
+      "links": [
+        {
+          "kind": "pdf",
+          "url": "https://example.com/cite-or-cut/poster.pdf",
+          "label": "Poster (PDF)"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/cite-or-cut",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "research"
+      ],
+      "tools": [
+        "Deep Research",
+        "ChatGPT"
+      ],
+      "keywords": [
+        "citations",
+        "fact check",
+        "thesis",
+        "references"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "opening-notebook",
+      "title": "Opening Notebook",
+      "students": [
+        "Sample Student F",
+        "Sample Student G"
+      ],
+      "summary": "Reviews a player's recent chess games and writes a short plan for which openings and mistakes to study next. Aimed at club players who play online.",
+      "description": "The student exports games in PGN format. A chess engine annotates the key mistakes, then Claude groups them by opening and by theme, such as hanging pieces or endgame technique. The output is a three-item study plan with puzzle suggestions.\n\nEngine evaluations are strong but are not the same as human coaching, and the grouping depends on the labels the engine gives. The plan is a starting point for study, and the tool does not rate or predict a player's strength.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/opening-notebook",
+          "label": "Source code"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.youtube.com/watch?v=example",
+          "label": "Demo video"
+        }
+      ],
+      "tags": [
+        "games",
+        "learning"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "keywords": [
+        "chess",
+        "pgn",
+        "openings",
+        "puzzles"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "quiz-night-host",
+      "title": "Quiz Night Host",
+      "students": [
+        "Sample Student H"
+      ],
+      "summary": "Generates trivia rounds for a dorm or club game night, with questions sorted by difficulty and a live scoreboard. Built for organizers who do not want to write questions from scratch.",
+      "description": "The organizer enters a theme, the number of rounds, and the group's age range. Gemini drafts questions with answers and a short fact for each, and a simple scoreboard page keeps running totals on a shared screen.\n\nGenerated trivia can contain mistakes or outdated facts, so the organizer should check every answer before the event. The tool stores no player data beyond names typed into the scoreboard for one night.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/quiz-night-host",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/quiz-night-host",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "games",
+        "community"
+      ],
+      "tools": [
+        "Gemini",
+        "ChatGPT"
+      ],
+      "keywords": [
+        "trivia",
+        "game night",
+        "scoreboard",
+        "party"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "dungeon-scribe",
+      "title": "Dungeon Scribe",
+      "students": [
+        "Sample Student I"
+      ],
+      "summary": "Helps tabletop players build a campaign: a town map, a cast of named characters, and a session outline for each week. Made for game masters running their first long campaign.",
+      "description": "A game master describes the setting in a few sentences. Claude proposes a town, factions, and a cast, then drafts session outlines that tie back to threads the players have already touched. Mistral writes short map descriptions that can be printed as handouts.\n\nThe stories are a starting point, and game masters are expected to rewrite anything that does not fit their table. The model providers still process the prompts, so private details about players should be left out.",
+      "links": [
+        {
+          "kind": "doc",
+          "url": "https://example.com/dungeon-scribe/write-up",
+          "label": "Write-up"
+        },
+        {
+          "kind": "artifact",
+          "url": "https://claude.ai/artifact/example-dungeon-scribe",
+          "label": "Claude artifact"
+        }
+      ],
+      "tags": [
+        "games",
+        "creative"
+      ],
+      "tools": [
+        "Claude",
+        "Mistral"
+      ],
+      "keywords": [
+        "tabletop",
+        "campaign",
+        "rpg",
+        "worldbuilding"
+      ],
+      "thumbnail": null,
+      "featured": true
+    },
+    {
+      "id": "interview-sparring-partner",
+      "title": "Interview Sparring Partner",
+      "students": [
+        "Sample Student J"
+      ],
+      "summary": "Runs mock job interviews for a chosen role and gives feedback on answer structure and clarity. Designed for students preparing for first internship interviews.",
+      "description": "The student picks a role and pastes a job posting. Claude asks questions drawn from the posting, follows up on vague answers, and scores each reply on structure, specifics, and length. A locally hosted Llama model handles practice sessions the student wants to keep private.\n\nThe scores are a rough guide and reflect the app's rubric, not what a hiring team would decide. Practice answers can sound polished without being true, so students should only use stories from their own experience.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/interview-sparring-partner",
+          "label": "Live site"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.youtube.com/watch?v=example",
+          "label": "Demo video"
+        }
+      ],
+      "tags": [
+        "career",
+        "learning"
+      ],
+      "tools": [
+        "Claude",
+        "Llama"
+      ],
+      "keywords": [
+        "mock interview",
+        "internship",
+        "feedback",
+        "job posting"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "resume-tailor",
+      "title": "Resume Tailor",
+      "students": [
+        "Sample Student K"
+      ],
+      "summary": "Compares a resume against a job posting and suggests specific wording changes without inventing experience. Built for students applying to many internships at once.",
+      "description": "The student uploads a resume and pastes a posting. ChatGPT Work lists the requirements the posting asks for, marks which ones the resume already shows, and proposes rewrites of existing bullets. Codex built the script that exports each version as a separate document.\n\nThe tool is instructed not to add skills or employers the student did not list, but the student must still check each change. Keyword matching can push a resume toward the posting at the expense of clarity, so every suggestion is optional.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/resume-tailor",
+          "label": "Source code"
+        },
+        {
+          "kind": "doc",
+          "url": "https://example.com/resume-tailor/write-up",
+          "label": "Write-up"
+        }
+      ],
+      "tags": [
+        "career",
+        "productivity"
+      ],
+      "tools": [
+        "ChatGPT Work",
+        "Codex"
+      ],
+      "keywords": [
+        "resume",
+        "job posting",
+        "internship applications",
+        "bullet points"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "alumni-ask",
+      "title": "Alumni Ask",
+      "students": [
+        "Sample Student L"
+      ],
+      "summary": "Finds alumni in a campus directory who match a student's career interests and drafts a short, personal request for a coffee chat. Students send every message themselves.",
+      "description": "The student enters target roles and cities. Claude in Chrome reads the public alumni directory pages the student has open and ranks people by shared background. For each match, Claude drafts a three-sentence note that mentions one specific detail from the person's profile.\n\nThe tool never sends messages and does not read pages the student cannot already see. Drafts can sound generic or overly flattering, so students should edit each one before sending it.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/alumni-ask",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/alumni-ask",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "career",
+        "community"
+      ],
+      "tools": [
+        "Claude in Chrome",
+        "Claude"
+      ],
+      "keywords": [
+        "networking",
+        "informational interview",
+        "alumni",
+        "outreach"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "tutor-pair",
+      "title": "Tutor Pair",
+      "students": [
+        "Sample Student M"
+      ],
+      "summary": "Helps peer tutors plan one-hour sessions with practice problems matched to the topics a student missed. Built for undergraduate tutoring centers.",
+      "description": "A tutor logs the topics a student struggled with on the last quiz. The app calls the Claude API to write three practice problems at matching difficulty, plus a worked example. The OpenAI API then solves each problem a second way to check the answer key.\n\nWhen the two solutions disagree, the problem is flagged for the tutor to review. The tool does not replace instructor-written assessments and cannot judge a student's understanding on its own.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/tutor-pair",
+          "label": "Source code"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/tutor-pair",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "learning",
+        "community"
+      ],
+      "tools": [
+        "Claude API",
+        "OpenAI API"
+      ],
+      "keywords": [
+        "peer tutoring",
+        "practice problems",
+        "session plan",
+        "answer key"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "inbox-digest",
+      "title": "Inbox Digest",
+      "students": [
+        "Sample Student N"
+      ],
+      "summary": "Sorts a student's email into a short daily digest of deadlines, replies needed, and newsletters to skip. Built for people whose inbox has become a to-do list.",
+      "description": "A local MCP connector reads the student's inbox labels and message subjects. A Claude Code script sorts each message into deadline, reply, or skip, then writes a digest file each morning. Messages the model cannot classify stay in the inbox untouched.\n\nEmail often contains private information, so the connector reads only the metadata the student enables and stores nothing after the digest is written. Classification mistakes are common on short or forwarded messages, so the digest always links to the originals.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/inbox-digest",
+          "label": "Source code"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/inbox-digest",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "productivity",
+        "software"
+      ],
+      "tools": [
+        "MCP",
+        "Claude Code"
+      ],
+      "keywords": [
+        "email triage",
+        "daily digest",
+        "inbox",
+        "mcp connector"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "route-radar",
+      "title": "Route Radar",
+      "students": [
+        "Sample Student O"
+      ],
+      "summary": "Compares transit options between two campus addresses by time, cost, and emissions. Helps students pick a commute without checking three apps.",
+      "description": "The user enters two addresses and a departure window. Gemini collects public transit timetables and estimates per-trip emissions from published factors, and Claude writes a plain comparison of the top three routes. The output lists the assumptions behind each number.\n\nTimetables change often and can be out of date when pulled, so the tool shows when each source was last updated. Emission estimates are rough averages and do not account for occupancy or vehicle age.",
+      "links": [
+        {
+          "kind": "dashboard",
+          "url": "https://example.org/route-radar/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/route-radar",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "travel",
+        "environment"
+      ],
+      "tools": [
+        "Gemini",
+        "Claude"
+      ],
+      "keywords": [
+        "commute",
+        "transit",
+        "carbon",
+        "campus"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "council-comment-helper",
+      "title": "Council Comment Helper",
+      "students": [
+        "Sample Student Q",
+        "Sample Student R"
+      ],
+      "summary": "Summarizes a city council agenda and helps residents draft a clear public comment on a zoning or climate item. Written for residents who have never spoken at a meeting.",
+      "description": "The resident pastes a link to an agenda packet. Deep Research finds the related ordinance text and prior meeting minutes, and Claude writes a one-page summary with the decision points and dates. A comment drafter then helps the resident turn their concern into three numbered points.\n\nThe summary can misread legal language, so every claim links to its source document. Drafts are meant to be edited, and the tool does not submit comments to the city.",
+      "links": [
+        {
+          "kind": "doc",
+          "url": "https://example.com/council-comment-helper/write-up",
+          "label": "Write-up"
+        },
+        {
+          "kind": "pdf",
+          "url": "https://example.com/council-comment-helper/poster.pdf",
+          "label": "Poster (PDF)"
+        }
+      ],
+      "tags": [
+        "civic",
+        "environment"
+      ],
+      "tools": [
+        "Deep Research",
+        "Claude"
+      ],
+      "keywords": [
+        "public comment",
+        "zoning",
+        "city council",
+        "agenda"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "menu-mate",
+      "title": "Menu Mate",
+      "students": [
+        "Sample Student S"
+      ],
+      "summary": "Reads a restaurant menu and lists which dishes fit a sodium limit or an allergy you enter. Built for students eating out on a tight schedule.",
+      "description": "The user enters dietary limits once, such as a sodium target or a list of allergens. ChatGPT reads the menu text and marks each dish as likely fine, likely avoid, or unknown, with the reason shown for each mark. Gemini provides a second read on menus with unclear ingredient lists.\n\nRestaurants change recipes often and menus rarely list every ingredient, so most marks are estimates. The tool is not a substitute for asking staff about allergies, and anyone with a serious allergy should confirm with the kitchen before ordering.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/menu-mate",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/menu-mate",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "food",
+        "health"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Gemini"
+      ],
+      "keywords": [
+        "menu scan",
+        "allergens",
+        "sodium",
+        "eating out"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "sleep-window",
+      "title": "Sleep Window",
+      "students": [
+        "Sample Student T"
+      ],
+      "summary": "Suggests a bedtime and wake-up window for a student's week, based on classes and a few nights of logged sleep. Aimed at people who want a steadier schedule.",
+      "description": "The student enters class times, work shifts, and a few nights of sleep and wake times. Claude proposes a consistent sleep window, then adjusts it for exam weeks and late labs. A short morning prompt asks how rested the student feels, and the schedule updates from those answers. Mistral checks the wording of the reminders.\n\nSleep advice from a general model is generic, and the tool cannot detect sleep disorders. The app says so in its output and recommends seeing a clinician if tiredness lasts for weeks.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/sleep-window",
+          "label": "Live site"
+        },
+        {
+          "kind": "doc",
+          "url": "https://example.com/sleep-window/write-up",
+          "label": "Write-up"
+        }
+      ],
+      "tags": [
+        "health",
+        "wellbeing"
+      ],
+      "tools": [
+        "Claude",
+        "Mistral"
+      ],
+      "keywords": [
+        "sleep schedule",
+        "circadian",
+        "exam week",
+        "bedtime"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "side-gig-ledger",
+      "title": "Side Gig Ledger",
+      "students": [
+        "Sample Student U"
+      ],
+      "summary": "Tracks freelance and tutoring income for tax season and flags which payments still need invoices. Made for students with several small paid gigs at once.",
+      "description": "Each payment is entered by hand or imported from a CSV. Claude Code built a small script that totals income by source, separates likely business expenses from personal ones, and produces a quarterly summary. The OpenAI API drafts a reminder message for clients with unpaid invoices, which the student reviews before sending.\n\nThe categories are suggestions, not tax filings, and the tool does not calculate what is owed. Tax rules vary by country and state, so students should check the summary with a tax preparer or their campus tax resource.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/side-gig-ledger",
+          "label": "Live site"
+        },
+        {
+          "kind": "git",
+          "url": "https://github.com/example/side-gig-ledger",
+          "label": "Source code"
+        }
+      ],
+      "tags": [
+        "finance",
+        "career"
+      ],
+      "tools": [
+        "Claude Code",
+        "OpenAI API"
+      ],
+      "keywords": [
+        "freelance",
+        "invoices",
+        "tutoring income",
+        "tax season"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "song-sketch-journal",
+      "title": "Song Sketch Journal",
+      "students": [
+        "Sample Student V"
+      ],
+      "summary": "Turns a voice memo of a rough song idea into chord suggestions, a lyric draft, and a practice plan. Written for songwriters who are still learning music theory.",
+      "description": "The writer records a short melody and adds a few words about the mood. Mistral transcribes the melody into note names and suggests three chord progressions that fit. Claude writes two lyric drafts and a practice plan aimed at the chord changes the writer finds hardest.\n\nThe suggestions lean toward common progressions and can make new songs sound generic. Lyrics are drafts for the writer to rewrite, and any melody close to a known song should be checked before release.",
+      "links": [
+        {
+          "kind": "video",
+          "url": "https://www.youtube.com/watch?v=example",
+          "label": "Demo video"
+        },
+        {
+          "kind": "website",
+          "url": "https://example.com/song-sketch-journal",
+          "label": "Live site"
+        }
+      ],
+      "tags": [
+        "creative",
+        "learning"
+      ],
+      "tools": [
+        "Mistral",
+        "Claude"
+      ],
+      "keywords": [
+        "songwriting",
+        "chords",
+        "voice memo",
+        "music theory"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "campus-events-digest",
+      "title": "Campus Events Digest",
+      "students": [
+        "Sample Student W"
+      ],
+      "summary": "Collects events from the campus group pages a student bookmarks into one weekly digest, sorted by topic. Helps first-year students find clubs and talks.",
+      "description": "A Cowork automation runs each week, opens the bookmarked event pages, and reads their titles, times, and locations. NotebookLM groups the events by interest, and the digest lists each one with a link back to its source page.\n\nEvent pages are inconsistent, so some listings are missed or show old dates. The tool reads only public pages the student bookmarks and does not join groups or register for events on anyone's behalf.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/campus-events-digest",
+          "label": "Live site"
+        },
+        {
+          "kind": "doc",
+          "url": "https://example.com/campus-events-digest/write-up",
+          "label": "Write-up"
+        }
+      ],
+      "tags": [
+        "community",
+        "travel"
+      ],
+      "tools": [
+        "Claude Cowork",
+        "NotebookLM"
+      ],
+      "keywords": [
+        "campus events",
+        "clubs",
+        "weekly digest",
+        "first year"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "survey-cleaner",
+      "title": "Survey Cleaner",
+      "students": [
+        "Sample Student X"
+      ],
+      "summary": "Cleans messy survey exports by fixing duplicate responses, inconsistent labels, and impossible values, with a log of every change. For researchers running small class surveys.",
+      "description": "The researcher uploads a CSV of responses. An OpenAI API step proposes standard labels for free-text answers, such as mapping variants of a major name to one category. A Python script applies only the changes the researcher approves, and every edit is written to a log that can be reviewed or reversed.\n\nThe model can merge categories that should stay separate, so the suggested mappings are a starting point, not a final coding scheme. The tool does not handle identifying information, and researchers should remove names and emails before upload.",
+      "links": [
+        {
+          "kind": "git",
+          "url": "https://github.com/example/survey-cleaner",
+          "label": "Source code"
+        },
+        {
+          "kind": "pdf",
+          "url": "https://example.com/survey-cleaner/poster.pdf",
+          "label": "Poster (PDF)"
+        }
+      ],
+      "tags": [
+        "research",
+        "software"
+      ],
+      "tools": [
+        "OpenAI API",
+        "DeepSeek"
+      ],
+      "keywords": [
+        "survey data",
+        "csv cleaning",
+        "coding free text",
+        "research methods"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "budget-trip-builder",
+      "title": "Budget Trip Builder",
+      "students": [
+        "Sample Student Y"
+      ],
+      "summary": "Plans a weekend trip within a set budget by listing transport, lodging, and food options with estimated totals. Aimed at students planning group trips on limited money.",
+      "description": "The planner takes a destination, dates, group size, and a total budget. ChatGPT drafts a day-by-day itinerary with options at three price levels, and a spreadsheet tab adds up the costs so the group can see what each choice does to the total.\n\nPrices come from general knowledge and the sources the model cites, so they can be out of date. Bookings, reservations, and payments are left to the group, and the tool does not sell or arrange anything.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/budget-trip-builder",
+          "label": "Live site"
+        },
+        {
+          "kind": "dashboard",
+          "url": "https://example.org/budget-trip-builder/dashboard",
+          "label": "Budget dashboard"
+        }
+      ],
+      "tags": [
+        "travel",
+        "finance"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Gemini"
+      ],
+      "keywords": [
+        "group trip",
+        "itinerary",
+        "budget travel",
+        "cost split"
+      ],
+      "thumbnail": null
+    },
+    {
+      "id": "garden-planner",
+      "title": "Garden Planner",
+      "students": [
+        "Sample Student Z"
+      ],
+      "summary": "Suggests what to plant in a small balcony or campus plot based on sun hours, season, and the foods your household likes to eat. Made for beginners.",
+      "description": "The user enters a location, the hours of direct sun, and the size of the space. Llama, running on a laptop, drafts a planting calendar and a list of crops that fit, and the user picks which ones to keep. Claude then writes a watering schedule that matches the chosen plants.\n\nRegional advice from a general model can be wrong for microclimates or local pests, so the planner links to the local extension service for checks. The tool does not account for soil testing or contamination, which matter for any food grown in urban soil.",
+      "links": [
+        {
+          "kind": "website",
+          "url": "https://example.com/garden-planner",
+          "label": "Live site"
+        },
+        {
+          "kind": "doc",
+          "url": "https://example.com/garden-planner/write-up",
+          "label": "Write-up"
+        }
+      ],
+      "tags": [
+        "environment",
+        "food"
+      ],
+      "tools": [
+        "Llama",
+        "Claude"
+      ],
+      "keywords": [
+        "balcony garden",
+        "planting calendar",
+        "sun hours",
+        "urban farming"
+      ],
+      "thumbnail": null
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Final Project Showcase · CS193T Thinking with AI</title>
+  <meta name="description" content="Custom AI systems built by CS193T students at Stanford. Search by what you care about: fitness, cooking, games, organization, work and more.">
+  <meta property="og:title" content="CS193T Final Project Showcase">
+  <meta property="og:description" content="Custom AI systems built by CS193T students at Stanford.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CS193T Thinking with AI">
+  <meta property="og:url" content="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/final_project/showcase/">
+  <meta property="og:image" content="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/img/SU_Seal_Red.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/final_project/showcase/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="assets/theme-init.js"></script>
+  <link rel="preload" href="assets/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/showcase.css">
+  <link rel="modulepreload" href="assets/search.js">
+  <script type="module" src="assets/showcase.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <header class="topbar">
+    <div class="topbar__inner wrap">
+      <a class="brand" href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/">
+        <img class="brand__mark" src="assets/favicon.svg" width="22" height="22" alt="">
+        <span class="brand__name">CS193T <span class="brand__sub">Thinking with AI</span></span>
+      </a>
+      <nav class="topnav" aria-label="Course">
+        <a href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/">Course home</a>
+        <a href="../">Final Project</a>
+        <a href="../rubric/">Rubric</a>
+        <a href="../posters/">Posters</a>
+        <button class="mode-toggle" type="button" id="mode-toggle" aria-label="Mode: switch to dark">
+          <span class="mode-toggle__label">Mode</span>
+          <span class="mode-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Final project showcase <span class="eyebrow__sep">/</span> <span id="term">Autumn 2026</span></p>
+        <h1 id="hero-title" class="hero__title">What students built <em>with</em> AI.</h1>
+        <p class="hero__lede" id="hero-lede">Custom AI systems from students across every major. Search for what you care about and the page rearranges around it.</p>
+
+        <div class="search" id="search">
+          <label class="visually-hidden" for="q" id="q-label">Search projects</label>
+          <div class="search__field">
+            <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="q" class="search__input" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="100" enterkeyhint="search"
+              placeholder="Try “cooking” or “gym”"
+              role="combobox" aria-expanded="false" aria-controls="suggest" aria-autocomplete="list" aria-describedby="search-hint">
+            <kbd class="search__kbd" aria-hidden="true">/</kbd>
+            <button class="search__clear" type="button" id="q-clear" aria-label="Clear search" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+          <div class="suggest" id="suggest" role="listbox" aria-labelledby="q-label" hidden></div>
+          <p class="visually-hidden" id="suggest-status" role="status" aria-live="polite"></p>
+          <p class="visually-hidden" id="search-hint">Suggestions appear as you type. Use the up and down arrows to move through them.</p>
+        </div>
+
+        <div class="try" id="try" aria-label="Example searches">
+          <span class="try__label">Try</span>
+        </div>
+
+        <dl class="stats" id="stats" aria-live="polite"></dl>
+      </div>
+    </section>
+
+    <section class="foryou wrap" id="foryou" aria-labelledby="foryou-title" hidden>
+      <div class="foryou__panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow eyebrow--plain">For you</p>
+            <h2 id="foryou-title" class="section-title">Picked for you</h2>
+            <p class="section-sub" id="foryou-sub"></p>
+          </div>
+          <div class="interest-pills" id="interest-pills" role="group" aria-label="Your interests"></div>
+        </div>
+        <div class="grid grid--compact" id="foryou-grid"></div>
+        <p class="fineprint">Based on what you searched. Saved only in this browser. <button type="button" class="chip chip--sm" id="interests-clear">Clear picks</button></p>
+      </div>
+    </section>
+
+    <section class="featured" id="featured" aria-labelledby="featured-title" hidden>
+      <div class="wrap section-head">
+        <div>
+          <p class="eyebrow eyebrow--plain">Featured</p>
+          <h2 id="featured-title" class="section-title">Staff picks</h2>
+        </div>
+        <div class="carousel-controls">
+          <button type="button" class="round-btn" id="feat-prev" aria-label="Previous featured project">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <span class="carousel-count" id="feat-count" aria-live="polite"></span>
+          <button type="button" class="round-btn" id="feat-next" aria-label="Next featured project">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="carousel" id="feat-track" tabindex="-1" role="region" aria-roledescription="carousel" aria-label="Staff picks"></div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title" tabindex="-1">
+      <div class="toolbar" id="toolbar">
+        <div class="wrap toolbar__inner">
+          <div class="topics" id="topics" role="group" aria-label="Filter by topic"></div>
+          <label class="sort">
+            <span class="visually-hidden">Sort projects</span>
+            <select id="sort">
+              <option value="mixed">Mixed</option>
+              <option value="az">A to Z</option>
+              <option value="featured">Featured first</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="results-head">
+          <h2 id="projects-title" class="section-title">All projects</h2>
+          <p class="results-meta" id="results-meta" aria-live="polite"></p>
+        </div>
+        <div class="match-note" id="match-note" hidden></div>
+        <div class="grid" id="grid" aria-busy="true"></div>
+        <div class="empty" id="empty" hidden>
+          <p class="empty__title">Nothing matches that yet.</p>
+          <p class="empty__body">Try a broader word, or one of these:</p>
+          <div class="empty__chips" id="empty-chips"></div>
+        </div>
+        <noscript><p class="empty__title">This page needs JavaScript to list projects.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>Projects appear with each student’s permission. Spot a problem or want yours changed? <a href="../../course/getting_help">Contact course staff</a>.</p>
+      <p class="footer__credit">&copy; 2026 &middot; <a href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/">CS193T Thinking with AI</a> &middot; <a href="../">Final Project</a></p>
+      <p class="footer__mono"><span id="generated"></span></p>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+    <div class="sheet__inner">
+      <div class="sheet__bar">
+        <button type="button" class="round-btn" id="sheet-prev" aria-label="Previous project">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" class="round-btn" id="sheet-next" aria-label="Next project">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <span class="sheet__spacer"></span>
+        <button type="button" class="pill-btn" id="sheet-copy">Copy link</button>
+        <button type="button" class="round-btn" id="sheet-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <p class="visually-hidden" id="sheet-status" role="status" aria-live="polite"></p>
+      <div class="sheet__body" id="sheet-body"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
